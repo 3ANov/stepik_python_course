@@ -21,7 +21,6 @@ def create(namespace, parent):
         namespaces[parent] += [namespace]
 
 
-
 def add(namespace, var):
     if namespaces.get(namespace) is None:
         create(var, namespace)
@@ -33,44 +32,43 @@ def get(namespace, var):
     for space in namespaces:
         for child in namespaces[space]:
             reverse_dict[child] = space
-    if var in reverse_dict.keys():
-       if reverse_dict[var] == namespace:
-           print(namespace)
+    parent = reverse_dict.get(var)
+    if parent is not None:
+        print(parent)
+        return
+    if parent != namespace:
+        print(reverse_dict.get(parent))
     else:
         print(None)
+
+
 
 
 #translate()
 
 add('global', 'a')
-print(namespaces)
-print(reverse_dict)
-
+# print(namespaces)
+# print(reverse_dict)
 create('foo', 'global')
-print(namespaces)
-print(reverse_dict)
-
+# print(namespaces)
+# print(reverse_dict)
 add('foo', 'b')
-print(namespaces)
-print(reverse_dict)
+# print(namespaces)
+# print(reverse_dict)
 get('foo', 'a')
-print(namespaces)
-print(reverse_dict)
+# print(namespaces)
+# print(reverse_dict)
 get('foo', 'c')
-print(namespaces)
-print(reverse_dict)
+# print(namespaces)
+# print(reverse_dict)
 create('bar', 'foo')
-print(namespaces)
-print(reverse_dict)
+create('car', 'bar')
 add('bar', 'a')
-print(namespaces)
-print(reverse_dict)
-get('bar', 'a')
-print(namespaces)
-print(reverse_dict)
+
+get('car', 'a')
+
 get('bar', 'b')
-print(namespaces)
-print(reverse_dict)
+
 
 
 
