@@ -6,27 +6,43 @@ parents = {}
 
 for _ in range(n):
     a = input().split()
-    parents[a[0]] = [] if len(a) == 1 else a[2:]
+    parents[a[0]] = set([]) if len(a) == 1 else set(a[2:])
 
-print(parents)
+#print(parents)
 
 #Ответ - m,e,g,f
 
 q = int(input())
-queue = []
-for i in range(q):
-    queue.append(input())
-print(queue)
+
 
 def is_parent(child, parent):
     if child == parent:
         return True
 
-    for p in parents[child]:
-        if is_parent(p, parent):
-            return True
+    try:
+        for p in parents.get(child):
+            if is_parent(p, parent):
+                return True
+    except:
+        return False
 
     return False
+
+
+#Ответ - m,e,g,f
+queue = []
+for _ in range(q):
+    queue.append(input())
+
+#print(queue)
+
+for i in queue:
+    for j in queue:
+        if is_parent(i,j) and queue.index(i)>queue.index(j):
+            print(i)
+            break
+
+
 
 
 
