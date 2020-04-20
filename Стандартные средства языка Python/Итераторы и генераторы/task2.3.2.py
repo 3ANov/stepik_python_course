@@ -1,6 +1,7 @@
 import itertools
 import math
-
+a = [i for i in range(5)][1:]
+print(a)
 
 def primes():
     i = 2
