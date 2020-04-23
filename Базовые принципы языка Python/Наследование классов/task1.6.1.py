@@ -39,7 +39,7 @@ def find_path(graph, start, end, path=[]):
 
 for _ in range(n):
     parent, child = input().split()
-    if find_path(classes,child, parent) is not None:
+    if find_path(classes, child, parent) is not None:
         print("Yes")
     else:
         print("No")
