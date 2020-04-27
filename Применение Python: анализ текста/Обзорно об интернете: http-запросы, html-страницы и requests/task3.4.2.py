@@ -4,7 +4,7 @@ import re
 
 start = 'http://pastebin.com/raw/7543p0ns'
 #href=[\'|\"]((\w*\:\/\/)?)(\b([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\b)
-link_template = r'href=[\'|\"]((\w*\:\/\/)?)(\b([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\b)'
+link_template = r'<a.*href=[\'|\"]((\w*\:\/\/)?)(\b([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\b)'
 res = requests.get(start)
 domain_name = []
 
