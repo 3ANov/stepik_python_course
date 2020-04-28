@@ -1,3 +1,5 @@
+#coding: utf-8
+
 import json
 with open("input.json") as read_file:
     js = json.load(read_file)
